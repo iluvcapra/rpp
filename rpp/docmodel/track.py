@@ -4,21 +4,21 @@ class Track:
         """
         Create a track object for the given rppxml
         """
-        pass
+        self.rppxml = rppxml
 
     @property
     def uuid(self):
         """
         The Track UUID.
         """
-        return None
+        return self.rppxml.attrib[0]
 
     @property
     def name(self):
         """
         The Track name.
         """
-        return None
+        return self.rppxml.find('NAME')[1]
 
     @property
     def solo(self):

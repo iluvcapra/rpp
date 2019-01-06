@@ -4,6 +4,7 @@ projects."""
 from .element import Element
 from .rpp import dump, dumps, loads, load
 
+from .docmodel.project import Project
 
 __version__ = '0.4'
 __author__ = 'Sviatoslav Abakumov <dust.harvesting@gmail.com>'
