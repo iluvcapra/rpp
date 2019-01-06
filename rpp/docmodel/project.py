@@ -35,9 +35,11 @@ class Project:
             if skip_next:
                 skip_next = False
                 continue
+
             if marker1[1] == marker2[1]:
+                skip_next = True
                 yield Region(marker1, marker2)
-                skip_next = True 
+ 
             else:
                 yield Marker(marker1)
    
