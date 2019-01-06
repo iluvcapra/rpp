@@ -48,3 +48,4 @@ Session.vim
 
 *.RPP-bak
 parser.out
+*.swp
