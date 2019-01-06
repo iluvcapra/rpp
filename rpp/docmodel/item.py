@@ -1,5 +1,5 @@
 class Item:
-    
+
     def __init__(self, rppxml):
         """
         Create an Item object from rppxml.
@@ -39,14 +39,14 @@ class Item:
     @property
     def fade_in(self):
         ":class:`rpp.docmodel.fade_descriptor.FadeDescriptor` for clip's fade in."
-        return FadeDescriptor(self.rppxml.find('FADEIN')) 
+        return FadeDescriptor(self.rppxml.find('FADEIN'))
 
     @property
     def fade_out(self):
         ":class:`rpp.docmodel.fade_descriptor.FadeDescriptor` for clip's fade out."
         return FadeDescriptor(self.rppxml.find('FADEOUT')
 
-    @propert
+    @property
     def gain(self):
         "Overall gain."
         return float(self.rppxml.find('VOLPAN')[3])
