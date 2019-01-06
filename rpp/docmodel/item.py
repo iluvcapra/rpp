@@ -44,11 +44,13 @@ class Item:
     @property
     def fade_out(self):
         ":class:`rpp.docmodel.fade_descriptor.FadeDescriptor` for clip's fade out."
-        return FadeDescriptor(self.rppxml.find('FADEOUT')
+        return FadeDescriptor(self.rppxml.find('FADEOUT'))
 
     @property
     def gain(self):
-        "Overall gain."
+        """
+        Overall gain.
+        """
         return float(self.rppxml.find('VOLPAN')[3])
 
     @property
