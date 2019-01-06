@@ -27,7 +27,7 @@ class Project:
     @property
     def markers(self):
         """
-        An iterator for ech :class:`rpp.docmodel.Marker`.
+        An iterator for ech :class:`rpp.docmodel.marker.Marker`.
         """
         markers = self.rppxml.findall('./MARKER')
         skip_next = False
@@ -35,7 +35,8 @@ class Project:
             if skip_next:
                 skip_next = False
                 continue
-
+            
+            # a Region is represented as two markers in succession, with the same id
             if marker1[1] == marker2[1]:
                 skip_next = True
                 yield Region(marker1, marker2)
@@ -46,7 +47,7 @@ class Project:
     @property
     def tracks(self):
         """
-        An iterator for each :class:`rpp.docmodel.Track`.
+        An iterator for each :class:`rpp.docmodel.track.Track`.
         """
         for track in self.rppxml.findall('./TRACK'):
             yield Track(track)

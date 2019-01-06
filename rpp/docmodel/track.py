@@ -1,3 +1,5 @@
+from .item import Item 
+
 class Track:
     
     def __init__(self, rppxml):
@@ -25,19 +27,22 @@ class Track:
         """
         Solo state, True or False.
         """
-        return None
+        value = self.rppxml.find('MUTESOLO')[2]
+        return value == '2'
 
     @property
     def mute(self):
         """
         Muted state, True or False.
         """
-        return None
+        value = self.rppxml.find('MUTESOLO')[1]
+        return value == '1'
 
     @property
     def items(self):
         """
         Iterate through each media item on this track.
         """
-        yield None
+        for item in self.rppxml.findall('ITEM'):
+            yield Item(item)
 
