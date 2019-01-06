@@ -37,7 +37,10 @@ class Project:
                 continue
             
             # a Region is represented as two markers in succession, with the same id
-            if marker1[1] == marker2[1]:
+            if marker2 is None:
+                yield Marker(marker1)
+
+            elif marker1[1] == marker2[1]:
                 skip_next = True
                 yield Region(marker1, marker2)
  
